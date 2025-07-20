@@ -35,29 +35,7 @@ Chat/
     ├── message.js          # Message formatting
     ├── users.js            # User handling logic
     ├── darkmode.js         # Theme switching
-    └── bg.jpg              # Background image
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-* Node.js installed on your system
-
-### Installation
-
-```bash
-# Navigate to the project directory
-cd Chat
-
-# Install dependencies
-npm install
-```
-
-### Run the Application
-
-```bash
-node server.js
+    └── bg.jpg              # Background image //optional
 ```
 
 Then open your browser and visit: [http://localhost:3000]
