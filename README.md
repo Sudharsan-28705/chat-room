@@ -49,3 +49,8 @@ This project is for educational and personal use. No specific license applied.
 Created as a passion project to explore real-time communication and UI design.
 
 Feel free to customize, expand, or contribute!
+
+📬 Contact
+Sudharsan S
+GitHub: @Sudharsan-28705
+LinkedIn: (https://www.linkedin.com/in/sudharsan-s-a374aa293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
