@@ -52,12 +52,32 @@ io.on('connection', socket => {
     });
 
     // Listen for chat message
-    socket.on('user-message', msg => {
-        const user = getCurrentUser(socket.id);
-        if (user) {
-            io.to(user.room).emit('message', formatMessage(user.username, msg));
-        }
-    });
+    socket.on('user-message', async msg => {
+    const user = getCurrentUser(socket.id);
+
+    if (user) {
+
+        // 🔥 Generate AI response
+        const result = await model.generateContent(msg);
+        const aiReply = result.response.text();
+
+        // 💾 Store in AlloyDB
+        await pool.query(
+            "INSERT INTO chats (user_message, ai_response) VALUES ($1, $2)",
+            [msg, aiReply]
+        );
+
+        // 👤 Send user message
+        io.to(user.room).emit('message',
+            formatMessage(user.username, msg)
+        );
+
+        // 🤖 Send AI reply
+        io.to(user.room).emit('message',
+            formatMessage("AI", aiReply)
+        );
+    }
+});
 
     // When client disconnects
     socket.on('disconnect', () => {
