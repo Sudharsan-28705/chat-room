@@ -2,6 +2,8 @@ const express = require('express');
 const http = require('http');
 const socket = require('socket.io');
 const path = require('path');
+const pool = require('./db');
+const model = require('./ai');
 
 const formatMessage = require('./code/message');
 const {
